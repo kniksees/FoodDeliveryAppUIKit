@@ -19,3 +19,4 @@ struct Food: Codable {
     let image: String
 }
 
+

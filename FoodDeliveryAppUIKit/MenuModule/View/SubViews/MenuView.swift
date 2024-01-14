@@ -42,7 +42,7 @@ class MenuView: UIView {
         addSubview(stackView)
         presenter!.food!.pizza.forEach { i in
             let v = FoodViewCell()
-            v.pizzaView.image = UIImage(named: "pizza")
+            v.foodView.image = UIImage(data: (presenter!.pizzaImages[i.id] ?? Data()) ?? Data())
             v.nameLabel.text = i.name
             v.descriptionLabel.text = i.desctiption
             v.priceLabel.text = "от \(i.price) р"
@@ -55,7 +55,8 @@ class MenuView: UIView {
         }
         presenter!.food!.combo.forEach { i in
             let v = FoodViewCell()
-            v.pizzaView.image = UIImage(named: "pizza")
+            //v.pizzaView.image = UIImage(named: "pizza")
+            v.foodView.image = UIImage(data: (presenter!.comboImages[i.id] ?? Data()) ?? Data())
             v.nameLabel.text = i.name
             v.descriptionLabel.text = i.desctiption
             v.priceLabel.text = "от \(i.price) р"
@@ -68,7 +69,8 @@ class MenuView: UIView {
         }
         presenter!.food!.dessert.forEach { i in
             let v = FoodViewCell()
-            v.pizzaView.image = UIImage(named: "pizza")
+            v.foodView.image = UIImage(data: (presenter!.dessertImages[i.id] ?? Data()) ?? Data())
+            
             v.nameLabel.text = i.name
             v.descriptionLabel.text = i.desctiption
             v.priceLabel.text = "от \(i.price) р"
@@ -81,7 +83,7 @@ class MenuView: UIView {
         }
         presenter!.food!.drink.forEach { i in
             let v = FoodViewCell()
-            v.pizzaView.image = UIImage(named: "pizza")
+            v.foodView.image = UIImage(data: (presenter!.drinkImages[i.id] ?? Data()) ?? Data())
             v.nameLabel.text = i.name
             v.descriptionLabel.text = i.desctiption
             v.priceLabel.text = "от \(i.price) р"

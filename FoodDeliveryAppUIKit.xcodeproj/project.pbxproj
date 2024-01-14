@@ -19,6 +19,13 @@
 		0AD930312B52AD6B006A9452 /* FoodViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD930302B52AD6B006A9452 /* FoodViewCell.swift */; };
 		0AD930352B539994006A9452 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD930342B539994006A9452 /* CategoryView.swift */; };
 		0AD930372B53B0DB006A9452 /* BannersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD930362B53B0DB006A9452 /* BannersView.swift */; };
+		0AD930392B53B565006A9452 /* CityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD930382B53B565006A9452 /* CityView.swift */; };
+		0AD9303B2B53BCFE006A9452 /* CategotiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD9303A2B53BCFE006A9452 /* CategotiesView.swift */; };
+		0AD9303D2B53BF72006A9452 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD9303C2B53BF72006A9452 /* MenuView.swift */; };
+		0AD930422B53E319006A9452 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD930412B53E319006A9452 /* Food.swift */; };
+		0AD930462B53E503006A9452 /* MenuScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD930452B53E503006A9452 /* MenuScreenPresenter.swift */; };
+		0AD9304C2B53ED06006A9452 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD9304B2B53ED06006A9452 /* NetworkManager.swift */; };
+		0AD9304F2B53FCA0006A9452 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD9304E2B53FCA0006A9452 /* ModuleBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +43,13 @@
 		0AD930302B52AD6B006A9452 /* FoodViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewCell.swift; sourceTree = "<group>"; };
 		0AD930342B539994006A9452 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		0AD930362B53B0DB006A9452 /* BannersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannersView.swift; sourceTree = "<group>"; };
+		0AD930382B53B565006A9452 /* CityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityView.swift; sourceTree = "<group>"; };
+		0AD9303A2B53BCFE006A9452 /* CategotiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategotiesView.swift; sourceTree = "<group>"; };
+		0AD9303C2B53BF72006A9452 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		0AD930412B53E319006A9452 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		0AD930452B53E503006A9452 /* MenuScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScreenPresenter.swift; sourceTree = "<group>"; };
+		0AD9304B2B53ED06006A9452 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		0AD9304E2B53FCA0006A9452 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,37 +82,100 @@
 		0AD92FE02B513151006A9452 /* FoodDeliveryAppUIKit */ = {
 			isa = PBXGroup;
 			children = (
-				0AD9302E2B52AD3D006A9452 /* Views */,
-				0AD9301D2B52953D006A9452 /* Fonts */,
+				0AD9304E2B53FCA0006A9452 /* ModuleBuilder.swift */,
+				0AD930522B53FD29006A9452 /* ShoppingCartModule */,
+				0AD930512B53FD0A006A9452 /* ProfileModule */,
+				0AD930502B53FCDF006A9452 /* ContactsModule */,
+				0AD9304D2B53ED1C006A9452 /* ServiceLayer */,
+				0AD930482B53EC71006A9452 /* MenuModule */,
 				0AD92FE12B513151006A9452 /* AppDelegate.swift */,
 				0AD92FE32B513151006A9452 /* SceneDelegate.swift */,
 				0AD92FE52B513151006A9452 /* MainTabBarController.swift */,
 				0AD92FEA2B513153006A9452 /* Assets.xcassets */,
 				0AD92FEC2B513153006A9452 /* LaunchScreen.storyboard */,
 				0AD92FEF2B513153006A9452 /* Info.plist */,
-				0AD92FF52B5134F1006A9452 /* MenuViewController.swift */,
-				0AD92FF72B513519006A9452 /* СontactsViewController.swift */,
-				0AD92FF92B513533006A9452 /* ProfileViewController.swift */,
-				0AD92FFB2B513592006A9452 /* ShoppingCartViewController.swift */,
 			);
 			path = FoodDeliveryAppUIKit;
 			sourceTree = "<group>";
 		};
-		0AD9301D2B52953D006A9452 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
-		0AD9302E2B52AD3D006A9452 /* Views */ = {
+		0AD9302E2B52AD3D006A9452 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
 				0AD930302B52AD6B006A9452 /* FoodViewCell.swift */,
-				0AD930342B539994006A9452 /* CategoryView.swift */,
 				0AD930362B53B0DB006A9452 /* BannersView.swift */,
+				0AD930382B53B565006A9452 /* CityView.swift */,
+				0AD930342B539994006A9452 /* CategoryView.swift */,
+				0AD9303A2B53BCFE006A9452 /* CategotiesView.swift */,
+				0AD9303C2B53BF72006A9452 /* MenuView.swift */,
 			);
-			path = Views;
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		0AD930402B53E30D006A9452 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0AD930412B53E319006A9452 /* Food.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0AD930482B53EC71006A9452 /* MenuModule */ = {
+			isa = PBXGroup;
+			children = (
+				0AD9304A2B53ECC5006A9452 /* Presenter */,
+				0AD930492B53EC98006A9452 /* View */,
+				0AD930402B53E30D006A9452 /* Model */,
+			);
+			path = MenuModule;
+			sourceTree = "<group>";
+		};
+		0AD930492B53EC98006A9452 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0AD92FF52B5134F1006A9452 /* MenuViewController.swift */,
+				0AD9302E2B52AD3D006A9452 /* SubViews */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0AD9304A2B53ECC5006A9452 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				0AD930452B53E503006A9452 /* MenuScreenPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		0AD9304D2B53ED1C006A9452 /* ServiceLayer */ = {
+			isa = PBXGroup;
+			children = (
+				0AD9304B2B53ED06006A9452 /* NetworkManager.swift */,
+			);
+			path = ServiceLayer;
+			sourceTree = "<group>";
+		};
+		0AD930502B53FCDF006A9452 /* ContactsModule */ = {
+			isa = PBXGroup;
+			children = (
+				0AD92FF72B513519006A9452 /* СontactsViewController.swift */,
+			);
+			path = ContactsModule;
+			sourceTree = "<group>";
+		};
+		0AD930512B53FD0A006A9452 /* ProfileModule */ = {
+			isa = PBXGroup;
+			children = (
+				0AD92FF92B513533006A9452 /* ProfileViewController.swift */,
+			);
+			path = ProfileModule;
+			sourceTree = "<group>";
+		};
+		0AD930522B53FD29006A9452 /* ShoppingCartModule */ = {
+			isa = PBXGroup;
+			children = (
+				0AD92FFB2B513592006A9452 /* ShoppingCartViewController.swift */,
+			);
+			path = ShoppingCartModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,15 +248,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AD9303D2B53BF72006A9452 /* MenuView.swift in Sources */,
 				0AD92FFA2B513533006A9452 /* ProfileViewController.swift in Sources */,
 				0AD92FFC2B513592006A9452 /* ShoppingCartViewController.swift in Sources */,
 				0AD92FE62B513151006A9452 /* MainTabBarController.swift in Sources */,
 				0AD930312B52AD6B006A9452 /* FoodViewCell.swift in Sources */,
+				0AD9304F2B53FCA0006A9452 /* ModuleBuilder.swift in Sources */,
 				0AD930372B53B0DB006A9452 /* BannersView.swift in Sources */,
+				0AD930392B53B565006A9452 /* CityView.swift in Sources */,
+				0AD930422B53E319006A9452 /* Food.swift in Sources */,
 				0AD92FE22B513151006A9452 /* AppDelegate.swift in Sources */,
 				0AD92FF82B51351A006A9452 /* СontactsViewController.swift in Sources */,
+				0AD9304C2B53ED06006A9452 /* NetworkManager.swift in Sources */,
 				0AD92FE42B513151006A9452 /* SceneDelegate.swift in Sources */,
+				0AD930462B53E503006A9452 /* MenuScreenPresenter.swift in Sources */,
 				0AD92FF62B5134F1006A9452 /* MenuViewController.swift in Sources */,
+				0AD9303B2B53BCFE006A9452 /* CategotiesView.swift in Sources */,
 				0AD930352B539994006A9452 /* CategoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -33,18 +33,81 @@ class CategoriesView: UIView {
         return v
     }()
     
+    var pizzaButton: UIButton!
+    var comboButton: UIButton!
+    var dessertButton: UIButton!
+    var drinkButton: UIButton!
+    
     func setup() {
 
-        ["Пицца", "Комбо", "Дессерты", "Напитки", "Роллы"].forEach { text in
-            let v = CategoryView()
-            v.categoryLabel.text = text
+        pizzaButton = {
+            let v = UIButton()
+            v.layer.cornerRadius = 16
+            v.layer.borderColor = UIColor(named: "categotiesPink2")?.cgColor
+            v.layer.borderWidth = 1
+            v.setTitle("Пицца", for: .normal)
+            v.setTitleColor(.categotiesPink2, for: .normal)
+            v.titleLabel?.font = UIFont.systemFont(ofSize: 13)
             v.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
                 v.heightAnchor.constraint(equalToConstant: 32),
                 v.widthAnchor.constraint(equalToConstant: 88),
             ])
-            stackView.addArrangedSubview(v)
-        }
+            return v
+        }()
+        stackView.addArrangedSubview(pizzaButton)
+        
+        comboButton = {
+            let v = UIButton()
+            v.layer.cornerRadius = 16
+            v.layer.borderColor = UIColor(named: "categotiesPink2")?.cgColor
+            v.layer.borderWidth = 1
+            v.setTitle("Комбо", for: .normal)
+            v.setTitleColor(.categotiesPink2, for: .normal)
+            v.titleLabel?.font = UIFont.systemFont(ofSize: 13)
+            v.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                v.heightAnchor.constraint(equalToConstant: 32),
+                v.widthAnchor.constraint(equalToConstant: 88),
+            ])
+            return v
+        }()
+        stackView.addArrangedSubview(comboButton)
+        
+        dessertButton = {
+            let v = UIButton()
+            v.layer.cornerRadius = 16
+            v.layer.borderColor = UIColor(named: "categotiesPink2")?.cgColor
+            v.layer.borderWidth = 1
+            v.setTitle("Десерты", for: .normal)
+            v.setTitleColor(.categotiesPink2, for: .normal)
+            v.titleLabel?.font = UIFont.systemFont(ofSize: 13)
+            v.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                v.heightAnchor.constraint(equalToConstant: 32),
+                v.widthAnchor.constraint(equalToConstant: 88),
+            ])
+            return v
+        }()
+        stackView.addArrangedSubview(dessertButton)
+        
+        drinkButton = {
+            let v = UIButton()
+            v.layer.cornerRadius = 16
+            v.layer.borderColor = UIColor(named: "categotiesPink2")?.cgColor
+            v.layer.borderWidth = 1
+            v.setTitle("Напитки", for: .normal)
+            v.setTitleColor(.categotiesPink2, for: .normal)
+            v.titleLabel?.font = UIFont.systemFont(ofSize: 13)
+            v.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                v.heightAnchor.constraint(equalToConstant: 32),
+                v.widthAnchor.constraint(equalToConstant: 88),
+            ])
+            return v
+        }()
+        stackView.addArrangedSubview(drinkButton)
+
         addSubview(scrollView)
         scrollView.addSubview(stackView)
         

@@ -11,86 +11,47 @@ class MenuViewController: UIViewController {
     
     var presenter: MenuViewPresenterProtocol!
     
-    let cityView: UIView = {
-        let v = UIView()
-        return v
-    }()
-
-    let bannerView: UIView = {
-        let v = UIView()
-        return v
-    }()
-    
-    let categoriesView: UIView = {
-        let v = UIView()
-        v.backgroundColor = .green
-        return v
-    }()
-    
-    let menuView: UIView = {
-        let v = UIView()
-        v.backgroundColor = .appGray
-        return v
-    }()
-    
-    let scrollView: UIScrollView = {
-        let v = UIScrollView()
-        v.backgroundColor = .appGray
-        return v
-    }()
-    
-    func setupCityView() {
-        cityView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 100)
-        let v = CityView()
-        cityView.addSubview(v)
-        v.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            v.topAnchor.constraint(equalTo: cityView.topAnchor),
-            v.leadingAnchor.constraint(equalTo: cityView.leadingAnchor),
-            v.trailingAnchor.constraint(equalTo: cityView.trailingAnchor),
-            v.bottomAnchor.constraint(equalTo: cityView.bottomAnchor),
-        ])
-    }
-    
-    func setupBunnerVew() {
-        let v = BannersView()
-        bannerView.addSubview(v)
-        v.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            v.topAnchor.constraint(equalTo: bannerView.topAnchor),
-            v.leadingAnchor.constraint(equalTo: bannerView.leadingAnchor),
-            v.trailingAnchor.constraint(equalTo: bannerView.trailingAnchor),
-            v.bottomAnchor.constraint(equalTo: bannerView.bottomAnchor),
-        ])
-    }
-    
-    func setupCategoriesView() {
-        let v = CategoriesView()
-        categoriesView.addSubview(v)
-        v.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            v.topAnchor.constraint(equalTo: categoriesView.topAnchor),
-            v.leadingAnchor.constraint(equalTo: categoriesView.leadingAnchor),
-            v.trailingAnchor.constraint(equalTo: categoriesView.trailingAnchor),
-            v.bottomAnchor.constraint(equalTo: categoriesView.bottomAnchor),
-        ])
-    }
-    
-    func setupMenuView() {
-        let v = MenuView()
-        menuView.addSubview(v)
-        v.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            v.topAnchor.constraint(equalTo: menuView.topAnchor),
-            v.leadingAnchor.constraint(equalTo: menuView.leadingAnchor),
-            v.trailingAnchor.constraint(equalTo: menuView.trailingAnchor),
-            v.bottomAnchor.constraint(equalTo: menuView.bottomAnchor),
-        ])
-    }
+    var scrollView: UIScrollView!
+    var categoriesView: CategoriesView!
     
     override func viewDidLoad() {
-        presenter.showFood()
+
+        scrollView = {
+            let v = UIScrollView()
+            v.backgroundColor = .appGray
+            return v
+        }()
+        
+        let cityView: CityView = {
+            let v = CityView()
+            v.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 100)
+            return v
+        }()
+        
+
+        let bannerView: BannersView = {
+            let v = BannersView()
+            return v
+        }()
+        
+        categoriesView = {
+            let v = CategoriesView()
+            v.backgroundColor = .green
+            return v
+        }()
+        categoriesView.pizzaButton.addTarget(self, action: #selector(scrollToPizza(_:)), for: .touchUpInside)
+        categoriesView.comboButton.addTarget(self, action: #selector(scrollToCombo(_:)), for: .touchUpInside)
+        categoriesView.dessertButton.addTarget(self, action: #selector(scrollToDessert(_:)), for: .touchUpInside)
+        categoriesView.drinkButton.addTarget(self, action: #selector(scrollToDrink(_:)), for: .touchUpInside)
+        
+        let menuView: MenuView = {
+            let v = MenuView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height), presenter: presenter)
+            v.backgroundColor = .appGray
+            return v
+        }()
+        
+
+        
         super.viewDidLoad()
         
         view.addSubview(cityView)
@@ -102,7 +63,6 @@ class MenuViewController: UIViewController {
             v.translatesAutoresizingMaskIntoConstraints = false
         }
         
-        // always respect safe area
         let safeG = view.safeAreaLayoutGuide
         
         let contentG = scrollView.contentLayoutGuide
@@ -112,7 +72,7 @@ class MenuViewController: UIViewController {
             
             cityView.leadingAnchor.constraint(equalTo: safeG.leadingAnchor),
             cityView.trailingAnchor.constraint(equalTo: safeG.trailingAnchor),
-            cityView.heightAnchor.constraint(equalToConstant: 50.0),
+            cityView.heightAnchor.constraint(equalToConstant: 100.0),
             cityView.topAnchor.constraint(equalTo: safeG.topAnchor),
             
             scrollView.topAnchor.constraint(equalTo: cityView.bottomAnchor),
@@ -145,31 +105,33 @@ class MenuViewController: UIViewController {
         c = menuView.topAnchor.constraint(equalTo: contentG.topAnchor, constant: 210.0)
         c.isActive = true
         
-        setupCityView()
-        setupBunnerVew()
-        setupCategoriesView()
-        setupMenuView()
-        
     }
     
+    @objc func scrollToPizza(_ sender: UIButton) {
+        let offset = CGPoint(x: 0, y: 0)
+        scrollView.setContentOffset(offset, animated: true)
+    }
+    @objc func scrollToCombo(_ sender: UIButton) {
+        let offset = CGPoint(x: 0, y: 140 + 171 * (presenter.food?.pizza.count ?? 0))
+        scrollView.setContentOffset(offset, animated: true)
+    }
+    @objc func scrollToDessert(_ sender: UIButton) {
+        let offset = CGPoint(x: 0, y: 140 + 171 * ((presenter.food?.pizza.count ?? 0) + (presenter.food?.combo.count ?? 0)))
+        scrollView.setContentOffset(offset, animated: true)
+    }
+    @objc func scrollToDrink(_ sender: UIButton) {
+        var pizzaCount = presenter.food?.pizza.count ?? 0
+        var comboCOunt = presenter.food?.combo.count ?? 0
+        var dessertCount = presenter.food?.dessert.count ?? 0
+        let offset = CGPoint(x: 0, y: 140 + 171 * (pizzaCount + comboCOunt + dessertCount))
+        scrollView.setContentOffset(offset, animated: true)
+    }
 }
 
+
+
 extension MenuViewController: MenuViewProtocol {
-    func setPizzaList(pizza: [Food]) {
-        <#code#>
+    func succes() {
+        self.viewDidLoad()
     }
-    
-    func setComboList(pizza: [Food]) {
-        <#code#>
-    }
-    
-    func setDessertList(pizza: [Food]) {
-        <#code#>
-    }
-    
-    func setDrinkList(pizza: [Food]) {
-        <#code#>
-    }
-    
-    
 }

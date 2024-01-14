@@ -24,7 +24,7 @@ class FoodViewCell: UIView {
         return v
     }()
 
-    let pizzaView: UIImageView = {
+    let foodView: UIImageView = {
         let v = UIImageView()
         v.contentMode = .scaleToFill
         return v
@@ -33,6 +33,7 @@ class FoodViewCell: UIView {
     let nameLabel: UILabel = {
         let v = UILabel()
         v.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+        v.textColor = .black
         return v
     }()
 
@@ -61,13 +62,13 @@ class FoodViewCell: UIView {
 
     func setup() {
         addSubview(backgroundView)
-        backgroundView.addSubview(pizzaView)
+        backgroundView.addSubview(foodView)
         backgroundView.addSubview(nameLabel)
         backgroundView.addSubview(descriptionLabel)
         backgroundView.addSubview(priceView)
         priceView.addSubview(priceLabel)
 
-        pizzaView.translatesAutoresizingMaskIntoConstraints = false
+        foodView.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         priceLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -78,10 +79,10 @@ class FoodViewCell: UIView {
             backgroundView.widthAnchor.constraint(equalTo: super.widthAnchor),
             backgroundView.heightAnchor.constraint(equalToConstant: 170),
             
-            pizzaView.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor),
-            pizzaView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 20),
-            pizzaView.widthAnchor.constraint(equalToConstant: 130),
-            pizzaView.heightAnchor.constraint(equalToConstant: 130),
+            foodView.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor),
+            foodView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 20),
+            foodView.widthAnchor.constraint(equalToConstant: 130),
+            foodView.heightAnchor.constraint(equalToConstant: 130),
             
             nameLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 20),
             nameLabel.leadingAnchor.constraint(equalTo: backgroundView.centerXAnchor, constant: -20),

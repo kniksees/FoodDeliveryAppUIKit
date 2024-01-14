@@ -8,16 +8,17 @@
 import UIKit
 
 class MainTabBarController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         generateTabBar()
         setTabBarAppearance()
+        
     }
     
     private func generateTabBar() {
         viewControllers = [
-            generateVC(viewController: MenuViewController(),
+            generateVC(viewController: ModuleBuilder.createMenuScreen(),
                        title: "Меню",
                        image: UIImage(named: "menuIcon")),
             generateVC(viewController: ContactsViewController(),
@@ -43,7 +44,9 @@ class MainTabBarController: UITabBarController {
         tabBar.tintColor = UIColor(named: "tabBarRed")
         tabBar.unselectedItemTintColor = UIColor(named: "tabBarGray")
     }
-
-
+    
+    
 }
+
+
 

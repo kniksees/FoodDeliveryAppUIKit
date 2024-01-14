@@ -8,33 +8,54 @@
 import Foundation
 
 protocol MenuViewProtocol: AnyObject {
-    func setPizzaList(pizza: [Food])
-    func setComboList(pizza: [Food])
-    func setDessertList(pizza: [Food])
-    func setDrinkList(pizza: [Food])
+    func succes()
 }
 
 protocol MenuViewPresenterProtocol: AnyObject {
-    init(view: MenuViewProtocol, model: Model)
-    func showFood()
+    init(view: MenuViewProtocol, networkManager: NetworkManagerProtocol)
+    func getFood()
+    var food: Model? {get set}
+    var pizzaImages: [Int: Data?] {get set}
+    var comboImages: [Int: Data?] {get set}
+    var dessertImages: [Int: Data?] {get set}
+    var drinkImages: [Int: Data?] {get set}
 }
 
-class MenuScreenPresentor: MenuViewPresenterProtocol {
+class MenuScreenPresenter: MenuViewPresenterProtocol {
     
-    let view: MenuViewProtocol
-    let model: Model
-    
-    required init(view: MenuViewProtocol, model: Model) {
+    weak var view: MenuViewProtocol?
+    let networkManager: NetworkManagerProtocol!
+    var food: Model?
+    var pizzaImages = [Int: Data?]()
+    var comboImages = [Int: Data?]()
+    var dessertImages = [Int: Data?]()
+    var drinkImages = [Int: Data?]()
+    required init(view: MenuViewProtocol, networkManager: NetworkManagerProtocol) {
         self.view = view
-        self.model = model
+        self.networkManager = networkManager
+        getFood()
     }
     
-    func showFood() {
-        view.setPizzaList(pizza: model.pizza)
-        view.setComboList(pizza: model.combo)
-        view.setDessertList(pizza: model.dessert)
-        view.setDrinkList(pizza: model.drink)
+    func getFood() {
+        Task {
+            food = await networkManager.getModel(link: "https://run.mocky.io/v3/99b6ffb9-7e2b-4bbb-9f77-709cbeb5ec2a")
+            if food != nil {
+                for i in food!.pizza {
+                    pizzaImages[i.id] = await networkManager.getData(link: i.image)
+                }
+                for i in food!.combo {
+                    comboImages[i.id] = await networkManager.getData(link: i.image)
+                }
+                for i in food!.dessert {
+                    dessertImages[i.id] = await networkManager.getData(link: i.image)
+                }
+                for i in food!.drink {
+                    drinkImages[i.id] = await networkManager.getData(link: i.image)
+                }
+            }
+            await MainActor.run {
+                view!.succes()
+            }
+        }
     }
-    
-    
 }
