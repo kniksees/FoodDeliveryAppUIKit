@@ -7,12 +7,10 @@
 
 import Foundation
 
-// MARK: - Welcome
-struct Welcome: Codable {
+struct Model: Codable {
     let pizza, combo, dessert, drink: [Food]
 }
 
-// MARK: - Food
 struct Food: Codable {
     let id: Int
     let name: String

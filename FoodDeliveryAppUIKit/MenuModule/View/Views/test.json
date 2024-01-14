@@ -1,0 +1,101 @@
+//
+//  test.json
+//  FoodDeliveryAppUIKit
+//
+//  Created by Дмитрий Ерофеев on 14.01.2024.
+//
+
+{
+    "pizza": [
+        {
+            "id": 1,
+            "name": "Ветчина и грибы",
+            "price": 345,
+            "desctiption": "Ветчина, шампиньоны, увеличинная порция моцареллы, томатный соус",
+            "image": "https://amigos51.ru/nuber/images/shop/product/a12cf6f9-f296-4d79-937b-919af0cb3c0c/1c02c599-b5d5-4aaa-b307-e484a00bb3dc.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Баварские кобаски",
+            "price": 444,
+            "desctiption": "Ветчина, шампиньоны, увеличинная порция моцареллы, томатный соус",
+            "image": "https://static.pizzasushiwok.ru/images/menu_new/16t-1300.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Ветчина и грибы",
+            "price": 333,
+            "desctiption": "Ветчина, шампиньоны, увеличинная порция моцареллы, томатный соус",
+            "image": "https://s.myspar.ru/upload/img/10/1002/100271166.jpg?1653389256"
+        }
+    ],
+    "combo": [
+        {
+            "id": 1,
+            "name": "Комбо 1",
+            "price": 345,
+            "desctiption": "Лучшее комбо",
+            "image": "https://1nsk.ru/wp-content/uploads/2022/05/h2MwlhV3YH-YNniOEbTbtIKapYhEBN1EMv_sLCz9PtkFBs6wfQ148DuDpnL8JSiHFMv870oY.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Коибо 2",
+            "price": 444,
+            "desctiption": "Самое лучшее комбо",
+            "image": "https://magnorum.ru/uploadedFiles/eshopimages/big/set-akadem-rulit3.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Комбо 3",
+            "price": 333,
+            "desctiption": "Самое самое лучшее комбо",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV6jNnL00GeTbBJ4pKUS170R4DEjhWPglgdQ&usqp=CAU"
+        }
+    ],
+    "dessert": [
+        {
+            "id": 1,
+            "name": "Торт",
+            "price": 345,
+            "desctiption": "Вкусный торт",
+            "image": "https://www.vkusnyblog.com/wp-content/uploads/2021/10/klukvennyi-tort-s-maskarpone.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Чизкейк",
+            "price": 444,
+            "desctiption": "Вкусный чизкейк",
+            "image": "https://art-lunch.ru/content/uploads/2014/08/cheesecake-new-york-001x2-1.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Мороженое",
+            "price": 333,
+            "desctiption": "Вкусное мороженое",
+            "image": "https://brand-ice.ru/upload/iblock/ea4/ea4b0150037882e03d340e9cd5eb9c40.jpg"
+        }
+    ],
+    "drink": [
+        {
+            "id": 1,
+            "name": "Кола",
+            "price": 345,
+            "desctiption": "Необычный вкус",
+            "image": "https://img.vkusvill.ru/pim/images/site_LargeWebP/329cb247-238f-4998-b60b-9de5bf521e4d.webp?1703753480.9017"
+        },
+        {
+            "id": 2,
+            "name": "Чай",
+            "price": 444,
+            "desctiption": "Самый необычный вкус",
+            "image": "https://e2.edimdoma.ru/data/ingredients/0000/1200/1200-ed4_wide.jpg?1515760357"
+        },
+        {
+            "id": 3,
+            "name": "Вода",
+            "price": 333,
+            "desctiption": "Очень необычный вкус",
+            "image": "https://cgon.rospotrebnadzor.ru/upload/iblock/d9b/ej5gey2vo6735xz7okk6oka2m66rfmcd/lhknq90GpRAZrG1DA2IF.jpg"
+        }
+    ]
+}
